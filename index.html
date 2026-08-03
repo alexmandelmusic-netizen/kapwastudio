@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapwa Studio: Strategic advisory rooted in kinship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1E2A28;
+    --paper: #F3EFE4;
+    --paper-warm: #ECE5D5;
+    --gold: #B8862B;
+    --rattan: #6B4226;
+    --clay: #7A3B2E;
+    --ink-soft: rgba(30, 42, 40, 0.72);
+    --ink-faint: rgba(30, 42, 40, 0.45);
+    --line: rgba(30, 42, 40, 0.14);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Work Sans', -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Woven divider signature ---------- */
+  .weave {
+    width: 100%;
+    height: 34px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.55;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 40px 0 0;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--ink);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 90px 0 60px;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rattan);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5vw, 3.15rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 15ch;
+    margin: 0 auto 26px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--clay);
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 auto 36px;
+  }
+  .hero .cta {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 14px 30px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .hero .cta:hover { background: var(--clay); transform: translateY(-1px); }
+
+  /* ---------- Section rhythm ---------- */
+  section {
+    padding: 66px 0;
+  }
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    line-height: 1.3;
+    margin-bottom: 22px;
+    max-width: 26ch;
+  }
+  .lede {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin-bottom: 6px;
+  }
+  .lede + .lede { margin-top: 18px; }
+
+  /* ---------- Kapwa definition block ---------- */
+  .kapwa-block {
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+    margin-top: 30px;
+  }
+  .kapwa-block .term {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--clay);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Triad ---------- */
+  .triad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 8px;
+  }
+  @media (max-width: 700px) {
+    .triad { grid-template-columns: 1fr; gap: 34px; }
+  }
+  .triad-item .who {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--rattan);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .triad-item p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Methodology tags ---------- */
+  .method-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .method-tags span {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    padding: 8px 15px;
+    border-radius: 999px;
+    background: var(--paper-warm);
+  }
+
+  /* ---------- Full-bleed landscape panel ---------- */
+  .landscape {
+    width: 100%;
+    position: relative;
+    line-height: 0;
+  }
+  .landscape img {
+    width: 100%;
+    height: clamp(280px, 46vw, 480px);
+    object-fit: cover;
+    display: block;
+  }
+  .landscape .caption {
+    position: absolute;
+    bottom: 18px;
+    right: 28px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(243, 239, 228, 0.9);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  }
+  .landscape-hero {
+    margin-top: 28px;
+  }
+  .landscape-hero img {
+    height: clamp(220px, 34vw, 360px);
+  }
+
+  /* ---------- Founder ---------- */
+  .founder {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 8px;
+  }
+  @media (max-width: 640px) {
+    .founder { grid-template-columns: 1fr; text-align: center; }
+    .founder .photo { margin: 0 auto; }
+  }
+  .founder .photo {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .founder .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    display: block;
+  }
+  .founder .name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .founder .role {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rattan);
+    margin-bottom: 14px;
+  }
+  .founder .bio {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+  .founder .bio p + p {
+    margin-top: 14px;
+  }
+
+  /* ---------- Magsulat panel ---------- */
+  .magsulat {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 52px 44px;
+    margin-top: 6px;
+  }
+  @media (max-width: 700px) { .magsulat { padding: 40px 26px; } }
+  .magsulat .section-label { color: var(--gold); }
+  .magsulat h2 { color: var(--paper); }
+  .magsulat .lede { color: rgba(243, 239, 228, 0.78); }
+  .magsulat .term { color: #E0B96B; }
+
+  /* ---------- Signup ---------- */
+  .signup {
+    text-align: center;
+    padding: 78px 0 90px;
+  }
+  .signup h2 { margin: 0 auto 14px; max-width: 22ch; }
+  .signup .lede { margin: 0 auto 34px; }
+
+  /* MailerLite embed container — replace the placeholder inside with your
+     real embedded-form snippet from MailerLite (Forms → your form → Embed). */
+  .ml-embed-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .ml-placeholder {
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 26px;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    background: var(--paper-warm);
+  }
+  .ml-placeholder code {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--clay);
+    word-break: break-all;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">Kapwa Studio</div>
+</header>
+
+<div class="landscape landscape-hero">
+  <img src="assets/ocean-view.jpg" alt="Sunset over the water, boats silhouetted against the horizon, Philippines">
+  <span class="caption">Philippine waters, dusk</span>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A strategic advisory practice</div>
+    <h1>Rooted in <em>kapwa</em><br>the self and other, woven together.</h1>
+    <p>Kapwa Studio is a strategic thought partner for leaders and organizations navigating complex systems transformation, working from the Filipino indigenous understanding that self and others are deeply interconnected.</p>
+    <a class="cta" href="#signup">Stay connected</a>
+  </div>
+</section>
+
+<div class="wrap"><svg class="weave" viewBox="0 0 400 34" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <path d="M0 17 Q 25 2, 50 17 T 100 17 T 150 17 T 200 17 T 250 17 T 300 17 T 350 17 T 400 17" fill="none" stroke="#B8862B" stroke-width="1.2"/>
+</svg></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">What is Kapwa</div>
+    <h2>A philosophy and a practice of resilience</h2>
+    <div class="kapwa-block">
+      <span class="term">kapwa</span>
+      <p class="lede">In a world where systems routinely fragment people from their own dignity and from each other, kapwa holds that the self and others are deeply interconnected. It is both a philosophy and a practice of resilience. The Kapwa Studio methodology centers trust, belonging, and reciprocity.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Who We Work With</div>
+    <h2>Thought partnership for people and the systems they build together</h2>
+    <div class="triad">
+      <div class="triad-item">
+        <span class="who">Individual leaders</span>
+        <p>Who want to lead from a place of deep connection to themselves and others.</p>
+      </div>
+      <div class="triad-item">
+        <span class="who">Organizations</span>
+        <p>Ready to share power and redesign how they relate to the communities they serve.</p>
+      </div>
+      <div class="triad-item">
+        <span class="who">Multisector collaborations</span>
+        <p>Building the trust and relational infrastructure needed to achieve collective well-being and justice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">How We Work</div>
+    <h2>Justice-centered transformation, held in embodied practice</h2>
+    <p class="lede">Engagements take many forms, from one-on-one coaching to organizational sensemaking and advisory, to large-scale facilitated gatherings and retreats. They integrate strategic advisory with structured improvement, human-centered design, and systems thinking, all rooted in kapwa.</p>
+    <p class="lede">This work is expressed through embodied practice, including workshops, facilitated reflection, somatic practice, and narrative approaches.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">The Studio Model</div>
+    <h2>The model is itself an expression of kapwa</h2>
+    <p class="lede">Engagements are designed as genuine, generative partnerships with the leaders and organizations we work with, drawing on a constellation of collaborators, consultants, and practitioners who bring diverse worldviews, perspectives, and practices into the work. Kapwa Studio is a place of making, collaboration, and practice.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Founder</div>
+    <div class="founder">
+      <div class="photo">
+        <img src="assets/kristene.jpg" alt="Kristene Cristobal, Founder of Kapwa Studio">
+      </div>
+      <div>
+        <div class="name">Kristene Cristobal</div>
+        <div class="role">Founder</div>
+        <div class="bio">
+          <p>As a leader for health equity, Kristene coaches and consults with organizations and individuals to center equity, share power with those most harmed by inequities, and implement strategies that address the structural and systems barriers to equity and justice.</p>
+          <p>In her role as Chief Program and Equity Officer at the Center for Care Innovations, she and her team build strong partnerships with community health clinics, community based organizations, multisector partnerships, and community members to better understand and eliminate health disparities.</p>
+          <p>Prior to joining CCI, Kristene founded Cristobal Consulting, combining equity technical assistance with improvement, leadership, and organizational development to support change, impact, and accountability for equitable outcomes. Kristene has nearly 30 years of experience in program and curriculum design, strategic planning, and teaching and coaching teams in quality improvement, program evaluation, and equity technical assistance, partnering with community based organizations, health care delivery systems, community health centers, health plans, academic institutions, government agencies, and foundations to do so. Kristene earned her master's degree in maternal and child health from Harvard T.S. School of Public Health, master's degree in creative writing from Victoria University of Wellington, and bachelor's degree in neuroscience from Oberlin College. When not working on her novel, Kristene enjoys West African and Hawaiian dance and singing in community choirs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><svg class="weave" viewBox="0 0 400 34" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <path d="M0 17 Q 25 32, 50 17 T 100 17 T 150 17 T 200 17 T 250 17 T 300 17 T 350 17 T 400 17" fill="none" stroke="#6B4226" stroke-width="1.2"/>
+</svg></div>
+
+<section>
+  <div class="wrap">
+    <div class="magsulat">
+      <div class="section-label">Also Housed at the Studio</div>
+      <h2><span class="term">Magsulat</span>, a writing practice</h2>
+      <p class="lede">Magsulat serves people through story coaching, developmental editing, and writing retreats, integrating writing as a healing and reflective practice inside the broader studio work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap">
+    <div class="section-label">Stay Connected</div>
+    <h2>Be the first to know about offerings and program launches.</h2>
+    <p class="lede">Occasional notes on the practice, the people, and what's ahead.</p>
+    <div class="ml-embed-wrap">
+
+      <!-- MailerLite Universal -->
+      <script>
+          (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+          .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+          n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+          (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+          ml('account', '2554005');
+      </script>
+      <!-- End MailerLite Universal -->
+      <div class="ml-embedded" data-form="8zJ6O8"></div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Kapwa Studio &middot; kapwa-studio.com</div>
+</footer>
+
+</body>
+</html>
