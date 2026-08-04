@@ -59,15 +59,17 @@
 
   /* ---------- Header ---------- */
   header {
-    padding: 40px 0 0;
+    padding: 56px 0 8px;
   }
   .wordmark {
     font-family: var(--serif);
+    font-style: italic;
     font-weight: 500;
-    font-size: 1.15rem;
-    letter-spacing: 0.02em;
+    font-size: clamp(2.1rem, 5vw, 3.15rem);
+    letter-spacing: -0.01em;
     text-align: center;
-    color: var(--ink);
+    color: var(--clay);
+    line-height: 1.1;
   }
 
   /* ---------- Hero ---------- */
@@ -227,9 +229,53 @@
   }
   .landscape-hero {
     margin-top: 28px;
+    background: var(--paper);
+  }
+  .landscape-hero .frame {
+    position: relative;
+    line-height: 0;
   }
   .landscape-hero img {
     height: clamp(220px, 34vw, 360px);
+  }
+  @media (min-width: 700px) {
+    .landscape-hero {
+      display: flex;
+      justify-content: center;
+    }
+    .landscape-hero .frame {
+      display: inline-block;
+    }
+    .landscape-hero img {
+      width: auto;
+      max-width: 100%;
+      height: clamp(280px, 38vw, 460px);
+      object-fit: contain;
+    }
+  }
+
+  /* ---------- Section nav ---------- */
+  .site-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    padding: 22px 28px 0;
+    font-family: var(--sans);
+  }
+  .site-nav a {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .site-nav a:hover {
+    color: var(--clay);
+    border-color: var(--gold);
   }
 
   /* ---------- Founder ---------- */
@@ -342,9 +388,19 @@
 </header>
 
 <div class="landscape landscape-hero">
-  <img src="assets/ocean-view.jpg" alt="Sunset over the water, boats silhouetted against the horizon, Philippines">
-  <span class="caption">Philippine waters, dusk</span>
+  <div class="frame">
+    <img src="assets/ocean-view.jpg" alt="Sunset over the water, boats silhouetted against the horizon, Philippines">
+    <span class="caption">Coron, Philippines</span>
+  </div>
 </div>
+
+<nav class="site-nav">
+  <a href="#what-is-kapwa">what is kapwa</a>
+  <a href="#who-we-work-with">who we work with</a>
+  <a href="#how-we-work">how we work</a>
+  <a href="#founder">founder</a>
+  <a href="#signup">stay connected</a>
+</nav>
 
 <section class="hero">
   <div class="wrap">
@@ -359,7 +415,7 @@
   <path d="M0 17 Q 25 2, 50 17 T 100 17 T 150 17 T 200 17 T 250 17 T 300 17 T 350 17 T 400 17" fill="none" stroke="#B8862B" stroke-width="1.2"/>
 </svg></div>
 
-<section>
+<section id="what-is-kapwa">
   <div class="wrap">
     <div class="section-label">What is Kapwa</div>
     <h2>A philosophy and a practice of resilience</h2>
@@ -370,7 +426,7 @@
   </div>
 </section>
 
-<section>
+<section id="who-we-work-with">
   <div class="wrap">
     <div class="section-label">Who We Work With</div>
     <h2>Thought partnership for people and the systems they build together</h2>
@@ -391,7 +447,7 @@
   </div>
 </section>
 
-<section>
+<section id="how-we-work">
   <div class="wrap">
     <div class="section-label">How We Work</div>
     <h2>Justice-centered transformation, held in embodied practice</h2>
@@ -408,7 +464,7 @@
   </div>
 </section>
 
-<section>
+<section id="founder">
   <div class="wrap">
     <div class="section-label">Founder</div>
     <div class="founder">
